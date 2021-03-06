@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Current folder list
-        run: ip a
+        run: ls -la
 
 
   my-build:
@@ -40,13 +40,19 @@ jobs:
     needs: my-test # This job only will be run after job my-test is complete
     
     steps:
-      - name: Print build
-        run: echo "Build Step"
       - name: Execute few commands BUILD
         # Print defined ENV variables
         run: |
           echo "Build env."
           echo "Package name: ${{ env.PACKAGE_NAME }}"
+      - name: Check if AWS CLI installed by default
+        run: aws --version
+      - name: Check if archivators are installed
+        run: | 
+          zip
+          tar
+          bzip2
+          gzip
 
 
 
