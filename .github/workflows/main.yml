@@ -1,6 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
 name: My-Action-Basic
+# Global ENV list
+env:
+  APP_NAME:  "MyFlas"
+  PACKAGE_NAME: "Flask-Deploy-Version-${{ github.sha }}" # ENV that github provides (calling using ${{ env_name }} - syntax)
+  
 
 # Controls when the action will run. 
 on:
@@ -12,14 +17,18 @@ on:
       
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains two jobs called "my-test" and "my-build"
   my-test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
       - name: Print
         run: echo "Test Step"          
-       
+      - name: Execute few commands TEST
+        # Print defined ENV variables
+        run: |
+          echo "Test env."
+          echo "Application name: ${{ env.APP_NAME }}" 
 
 
   my-build:
@@ -29,3 +38,14 @@ jobs:
     steps:
       - name: Print build
         run: echo "Build Step"
+      - name: Execute few commands BUILD
+        # Print defined ENV variables
+        run: |
+          echo "Build env."
+          echo "Package name: ${{ env.PACKAGE_NAME }}"
+
+
+
+
+
+
