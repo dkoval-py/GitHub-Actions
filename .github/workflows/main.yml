@@ -29,6 +29,8 @@ jobs:
         run: |
           echo "Test env."
           echo "Application name: ${{ env.APP_NAME }}" 
+      - name: Current folder list
+        run: ls -la
 
 
   my-build:
