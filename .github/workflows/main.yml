@@ -51,8 +51,6 @@ jobs:
         run: | 
           zip
           tar
-          bzip2
-          gzip
 
 
 
