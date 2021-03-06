@@ -49,8 +49,8 @@ jobs:
         run: aws --version
       - name: Check if archivators are installed
         run: | 
-          zip
-          tar
+          zip --help
+          tar --help
 
 
 
