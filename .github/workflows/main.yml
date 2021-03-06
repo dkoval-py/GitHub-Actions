@@ -24,6 +24,7 @@ jobs:
 
   my-build:
     runs-on: ubuntu-latest
+    needs: my-test # This job only will be run after job my-test is complete
     
     steps:
       - name: Print build
