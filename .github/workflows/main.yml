@@ -21,18 +21,18 @@ jobs:
   my-test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    steps:
-      - name: Print
-        run: echo "Test Step"          
-      - name: Execute few commands TEST
+    steps:      
         # Print defined ENV variables
+      - name: Execute few commands TEST
         run: |
           echo "Test env."
           echo "Application name: ${{ env.APP_NAME }}" 
+        # Clone current repo to the container
+      - name: Git clone repository
+        uses: actions/checkout@v1
+        
       - name: Current folder list
         run: ls -la
-      - name: Current docker container list
-        run: docker ps
 
 
   my-build:
