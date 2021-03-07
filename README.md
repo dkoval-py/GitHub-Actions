@@ -1,5 +1,7 @@
 # GITHUB Actions
 
+[//]: # (This is a comment.)
+[//]: # (This is a comment on a new line.)
 <!-- For action status bar use the following syntax -->
 <!--
 Action Status: <br>
